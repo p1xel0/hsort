@@ -1,0 +1,9 @@
+#!/bin/bash
+ls -- \[HorribleSubs\]\ *.mkv &> /dev/null || exit
+for i in \[HorribleSubs\]\ *.mkv; do
+	dir="$i"
+	dir="${dir% -*}"
+	dir="${dir:15}"
+	mkdir -p "$dir"
+	mv "$i" "$dir"
+done
